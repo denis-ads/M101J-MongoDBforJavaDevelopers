@@ -1,0 +1,56 @@
+mongodb java developers
+
+###########
+week1
+
+Vai usar
+	spark java
+	freemarker
+
+install mongodb para fedora 26
+https://developer.fedoraproject.org/tech/database/mongodb/about.html
+
+	# dnf install mongodb mongodb-server
+	# service mongod start
+
+Mongo guarda bson -> binary json
+
+Namespace -> bancoDeDados.Collection
+		ex. video.movies
+
+
+carregar 
+	use video;
+db.movies.insertOne({ "title": "Jaws", "year": 1975, "imdb": "tt0073195" });
+db.movies.insertOne({ "title": "Mad Max 2: The Road Warrior", "year": 1981, "imdb": "tt0082694" })
+db.movies.insertOne({ "title": "Raiders of the Lost Ark", "year": 1981, "imdb": "tt0082971" })
+
+
+db.movies.find().pretty();
+
+
+mvn exec:java -Dexec.mainClass="com.mongodb.App"
+
+mvn exec:java -Dexec.mainClass="com.mongodb.HelloWorldSparkStyle"
+
+
+
+modelagem 
+
+	Pontos importantes para deixar subdominios juntos no mesmo documento ou em uma coleção especifica:
+		Caso tenha mais de 16m
+		Pode ser acessado independente.
+
+
+week2
+
+Cursor
+
+Projections
+
+	segundo paramento 
+	0 exclui do retorno
+	1 retorna
+	id sempre retorna por default, necessario _id: 0 para excluir
+
+	ex: db.moviesDetails.find({rated: "PG"}, {title: 1}).pretty()
