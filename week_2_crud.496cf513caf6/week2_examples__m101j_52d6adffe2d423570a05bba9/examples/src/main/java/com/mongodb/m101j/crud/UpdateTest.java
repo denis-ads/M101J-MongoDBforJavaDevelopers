@@ -70,3 +70,5 @@ public class UpdateTest {
         }
     }
 }
+
+//scores.updateOne(new Document("_id", 1), new Document("$set", new Document("examiner", "Jones")));

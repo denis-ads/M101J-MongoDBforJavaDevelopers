@@ -14,3 +14,9 @@ db.movieDetails.find({ boxOffice: {$elemMatch: { country: "UK", revenue: { $gt: 
 
 
 
+At around 2:38 Shannon presents a query:
+
+db.movieDetails.find({ boxOffice: { country: "UK", revenue: { $gt: 15 } } })
+To perform a query on subdocuments or array items you have to use dot notation. This query should be used instead:
+
+db.movieDetails.find({ "boxOffice.country": "UK", "boxOffice.revenue": { $gt: 15 } } )
